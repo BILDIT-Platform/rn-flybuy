@@ -1,0 +1,19 @@
+{
+  "name": "pickup",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Addin Gama Bertaqwa <addingama@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/pickup.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "node ./__tests__/pickup.test.js"
+  }
+}
