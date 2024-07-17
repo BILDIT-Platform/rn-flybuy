@@ -31,3 +31,9 @@ MIT
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+
+
+
+# TODO
+
+- Override android SDK version, set android/build.gradle `flybuyVersion` with your desired version

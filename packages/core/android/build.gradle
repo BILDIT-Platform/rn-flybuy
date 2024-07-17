@@ -1,6 +1,7 @@
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
   def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["RnFlybuyCore_kotlinVersion"]
+  def flybuy_version = rootProject.ext.has("flybuyVersion") ? rootProject.ext.get("flybuyVersion") : project.properties["RnFlybuyCore_flybuyVersion"]
 
   repositories {
     google()
@@ -114,6 +115,8 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  api platform("com.radiusnetworks.flybuy:bom:$flybuy_version")
 }
 
 if (isNewArchitectureEnabled()) {
