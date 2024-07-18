@@ -6,6 +6,7 @@ buildscript {
         targetSdkVersion = 34
         ndkVersion = "26.1.10909125"
         kotlinVersion = "1.9.22"
+        flybuyVersion = "2.12.1" // Modify this to update the version
     }
     repositories {
         google()
@@ -16,6 +17,13 @@ buildscript {
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
     }
+
+    allprojects {
+        repositories {
+            mavenCentral()
+        }
+    }
+
 }
 
 apply plugin: "com.facebook.react.rootproject"
