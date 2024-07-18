@@ -81,6 +81,7 @@ class RnFlybuyCoreModule internal constructor(context: ReactApplicationContext) 
   // Core functions
   @ReactMethod
   override fun configure(token: String, promise: Promise) {
+    // TODO: separate the configure function for New and Old Architechture
     try {
       if (ConfiguredFeatures.core) {
         return
