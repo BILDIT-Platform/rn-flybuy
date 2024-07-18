@@ -12,6 +12,8 @@ import type {
   PickupType,
 } from './types';
 
+export * from './types';
+
 export interface Spec extends TurboModule {
   // Core functions
   updatePushToken(token: string): void;

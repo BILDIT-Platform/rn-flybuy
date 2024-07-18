@@ -2,14 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import * as FlyBuyCore from '@bildit-platform/rn-flybuy-core';
 import {Button} from './components';
-
-const CUSTOMER_INFO = {
-  name: 'Lamia Selmane',
-  carType: 'Tesla',
-  carColor: 'Silver',
-  licensePlate: 'AB 0496',
-  phone: '555-555-5555',
-};
+import {CUSTOMER_INFO} from './constants';
 
 export const CustomerSection = () => {
   const login = () => {

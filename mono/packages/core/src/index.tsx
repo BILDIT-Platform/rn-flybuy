@@ -11,6 +11,8 @@ import type {
   PickupType,
 } from './types';
 
+export * from './types';
+
 const LINKING_ERROR =
   `The package '@bildit-platform/rn-flybuy-core' doesn't seem to be linked. Make sure: \n\n` +
   Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
