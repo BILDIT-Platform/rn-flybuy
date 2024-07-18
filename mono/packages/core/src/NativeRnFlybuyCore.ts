@@ -14,7 +14,6 @@ import type {
 
 export interface Spec extends TurboModule {
   // Core functions
-  configure(token: string): Promise<boolean>;
   updatePushToken(token: string): void;
   // TODO: change any
   handleRemoteNotification(data: any): void;

@@ -36,9 +36,6 @@ const RnFlybuyCore = RnFlybuyCoreModule
     );
 
 // Core functions
-export function configure(token: string): Promise<boolean> {
-  return RnFlybuyCore.configure(token);
-}
 
 export function updatePushToken(token: string): Promise<void> {
   return RnFlybuyCore.updatePushToken(token);

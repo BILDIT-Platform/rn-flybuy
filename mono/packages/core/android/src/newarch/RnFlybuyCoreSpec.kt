@@ -8,7 +8,6 @@ abstract class RnFlybuyCoreSpec internal constructor(context: ReactApplicationCo
   NativeRnFlybuyCoreSpec(context) {
 
   // Notification related function
-  abstract fun configure(token: String, promise: Promise)
   abstract fun updatePushToken(token: String)
   abstract fun handleRemoteNotification(data: ReadableMap)
 
