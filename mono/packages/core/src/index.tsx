@@ -113,7 +113,7 @@ export function fetchOrders(): Promise<IOrder[]> {
 export function createOrder(params: CreateOrderParamsType) {
   const {
     siteId,
-    sitePid,
+    sitePartnerIdentifier,
     orderPid,
     pid,
     customerInfo,
@@ -133,9 +133,9 @@ export function createOrder(params: CreateOrderParamsType) {
     );
   }
 
-  if (sitePid && orderPid) {
+  if (sitePartnerIdentifier && orderPid) {
     return RnFlybuyCore.createOrderWithPartnerIdentifier(
-      sitePid,
+      sitePartnerIdentifier,
       orderPid,
       customerInfo,
       pickupWindow ?? null,

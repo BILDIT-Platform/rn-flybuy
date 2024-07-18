@@ -45,7 +45,7 @@ abstract class RnFlybuyCoreSpec internal constructor(context: ReactApplicationCo
     promise: Promise
   )
   abstract fun createOrderWithPartnerIdentifier(
-    sitePid: String,
+    sitePartnerIdentifier: String,
     orderPid: String,
     customer: ReadableMap,
     pickupWindow: ReadableMap? = null,

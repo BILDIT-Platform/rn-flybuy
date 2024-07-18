@@ -24,7 +24,7 @@ export const OrdersSection = () => {
 
   const createOrderWithPartnerIdentification = () => {
     FlyBuyCore.createOrder({
-      sitePid: SITE_PID,
+      sitePartnerIdentifier: SITE_PID,
       orderPid: ORDER_PID,
       customerInfo: CUSTOMER_INFO,
     })

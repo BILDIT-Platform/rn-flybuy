@@ -103,7 +103,7 @@ export enum PickupType {
 }
 
 export type CreateOrderWithSitePid = {
-  sitePid: string;
+  sitePartnerIdentifier: string;
   orderPid: string;
   customerInfo: ICustomerInfo;
   pickupWindow?: PickupWindow;
