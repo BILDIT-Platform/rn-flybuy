@@ -10,6 +10,8 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
+import com.radiusnetworks.flybuy.sdk.ConfigOptions
+import com.radiusnetworks.flybuy.sdk.FlyBuyCore
 
 
 
@@ -41,5 +43,10 @@ class MainApplication : Application(), ReactApplication {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
       load()
     }
+
+    // Native configure
+    val configOptions = ConfigOptions.Builder(BuildConfig.ANDROID_APP_TOKEN)
+      .build()
+    FlyBuyCore.configure(this, configOptions)
   }
 }

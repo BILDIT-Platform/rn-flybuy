@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -115,6 +116,10 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // This is mandatory to do the native configure
+    implementation platform("com.radiusnetworks.flybuy:bom:$flybuyVersion")
+    implementation('com.radiusnetworks.flybuy:core')
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

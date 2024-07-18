@@ -12,7 +12,8 @@
   "dependencies": {
     "@bildit-platform/rn-flybuy-core": "file:../mono/packages/core",
     "react": "18.2.0",
-    "react-native": "0.74.3"
+    "react-native": "0.74.3",
+    "react-native-config": "^1.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
