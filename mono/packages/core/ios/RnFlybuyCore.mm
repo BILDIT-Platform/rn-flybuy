@@ -4,18 +4,6 @@
 @implementation RnFlybuyCore
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-//RCT_EXPORT_METHOD(multiply:(double)a
-//                  b:(double)b
-//                  resolve:(RCTPromiseResolveBlock)resolve
-//                  reject:(RCTPromiseRejectBlock)reject)
-//{
-//    NSNumber *result = @(a * b);
-//
-//    resolve(result);
-//}
-
 
 RCT_EXPORT_METHOD(login:(NSString *)email
                   withPassword:(NSString *)password
@@ -32,6 +20,80 @@ RCT_EXPORT_METHOD(login:(NSString *)email
     }];
 }
 
+RCT_EXPORT_METHOD(loginWithToken:(NSString *)token
+                  withResolver:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject)
+{
+    [[FlyBuyCore customer] loginWithTokenWithToken:token callback:^(FlyBuyCustomer *customer, NSError *error) {
+        if (error == nil && customer != nil) {
+            // Assuming you have a method `parserCustomer:` in this class that parses the customer
+            resolve([self parserCustomer:customer]);
+        } else {
+            reject(error.localizedDescription, error.debugDescription, error);
+        }
+    }];
+}
+
+RCT_EXPORT_METHOD(signUp:(NSString *)email
+                  withPassword:(NSString *)password
+                  withResolver:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject) {
+    [[FlyBuyCore customer] signUpWithEmailAddress:email password:password callback:^(FlyBuyCustomer *customer, NSError *error) {
+        if (error == nil && customer != nil) {
+            // Assuming you have a method `parserCustomer:` in this class that parses the customer
+            resolve([self parserCustomer:customer]);
+        } else {
+            reject(error.localizedDescription, error.debugDescription, error);
+        }
+    }];
+}
+
+
+RCT_EXPORT_METHOD(logout:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject) {
+    [[FlyBuyCore customer] logout];
+    resolve(@"ok");
+}
+
+RCT_EXPORT_METHOD(getCurrentCustomer:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject) {
+    FlyBuyCustomer *customer = [[FlyBuyCore customer] current];
+    if (customer == nil) {
+        reject(@"not_login", @"current customer error", nil);
+    } else {
+        resolve([self parserCustomer:customer]);
+    }
+}
+
+RCT_EXPORT_METHOD(createCustomer:(NSDictionary *)customer
+                  withResolver:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject) {
+    FlyBuyCustomerInfo *customerInfo = [self decodeCustomerInfo:customer];
+    [[FlyBuyCore customer] create:customerInfo termsOfService:YES ageVerification:YES callback:^(FlyBuyCustomer *customer, NSError *error) {
+        if (error == nil && customer != nil) {
+          resolve([self parserCustomer:customer]);
+        } else {
+          reject([error localizedDescription], [error debugDescription], error);
+        }
+    }];
+      
+}
+
+RCT_EXPORT_METHOD(updateCustomer:(NSDictionary *)customer
+                  withResolver:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject) {
+    FlyBuyCustomerInfo *customerInfo = [self decodeCustomerInfo:customer];
+    [[FlyBuyCore customer] update:customerInfo callback:^(FlyBuyCustomer *customer, NSError *error) {
+        if (error == nil && customer != nil) {
+          resolve([self parserCustomer:customer]);
+        } else {
+          reject([error localizedDescription], [error debugDescription], error);
+        }
+    }];
+}
+
+
+// Parser
 - (NSDictionary<NSString *, NSString *> *)parseCustomerInfo:(FlyBuyCustomerInfo *)info {
     return @{
         @"name": info.name ? info.name : [NSNull null],
@@ -48,6 +110,22 @@ RCT_EXPORT_METHOD(login:(NSString *)email
         @"emailAddress": customer.emailAddress ? customer.emailAddress : [NSNull null],
         @"info": [self parseCustomerInfo:customer.info]
     };
+}
+
+// Decoder
+- (FlyBuyCustomerInfo *)decodeCustomerInfo:(NSDictionary<NSString *, NSString *> *)customer {
+  NSString *name = customer[@"name"] ?: @" ";
+  NSString *carType = customer[@"carType"] ?: @"";
+  NSString *carColor = customer[@"carColor"] ?: @"";
+  NSString *licensePlate = customer[@"licensePlate"] ?: @"";
+  NSString *phone = customer[@"phone"] ?: @"";
+  
+    FlyBuyCustomerInfo *customerInfo = [[FlyBuyCustomerInfo alloc] initWithName:name
+                                                          carType:carType
+                                                         carColor:carColor
+                                                    licensePlate:licensePlate
+                                                           phone:phone];
+  return customerInfo;
 }
 
 
