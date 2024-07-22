@@ -31,8 +31,17 @@ export interface Spec extends TurboModule {
   getCurrentCustomer(): Promise<ICustomer>;
 
   // Sites functions
+  /**
+   * @deprecated
+   */
   fetchAllSites(): Promise<ISite[]>;
+  /**
+   * @deprecated
+   */
   fetchSitesByQuery(params: { query: string; page: number }): Promise<[ISite]>;
+  /**
+   * @deprecated
+   */
   fetchSitesByRegion(params: {
     per: number;
     page: number;
