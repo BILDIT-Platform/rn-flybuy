@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "@bildit-platform/rn-flybuy-core": "file:../mono/packages/core",
+    "@bildit-platform/rn-flybuy-livestatus": "file:../mono/packages/livestatus",
+    "@bildit-platform/rn-flybuy-notify": "file:../mono/packages/notify",
+    "@bildit-platform/rn-flybuy-pickup": "file:../mono/packages/pickup",
+    "@bildit-platform/rn-flybuy-presence": "file:../mono/packages/presence",
     "react": "18.2.0",
     "react-native": "0.74.3",
     "react-native-config": "^1.5.2"
