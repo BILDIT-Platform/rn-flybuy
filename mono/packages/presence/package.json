@@ -47,14 +47,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/addingama/bildit-platform-rn-flybuy-presence.git"
+    "url": "git+https://github.com/BILDIT-Platform/rn-flybuy.git"
   },
   "author": "Addin Gama Bertaqwa <addingama@gmail.com> (https://github.com/addingama)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/addingama/bildit-platform-rn-flybuy-presence/issues"
+    "url": "https://github.com/BILDIT-Platform/rn-flybuy/issues"
   },
-  "homepage": "https://github.com/addingama/bildit-platform-rn-flybuy-presence#readme",
+  "homepage": "https://github.com/BILDIT-Platform/rn-flybuy#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
