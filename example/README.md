@@ -47,3 +47,9 @@ npm run ios
 # OR using Yarn
 yarn ios
 ```
+
+## Step 4: Wrapper wrapper and sync
+
+The package on the example app is not symlinked to the monorepo package, so when we modify the development pods in XCode, we need to automatically sync the files.
+
+Modify the path in `scripts/watch-and-copy.sh` to match your local path and make sure to change the path according to the package that you want to modify and sync.
