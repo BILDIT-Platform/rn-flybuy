@@ -172,6 +172,19 @@ RCT_EXPORT_METHOD(fetchSiteByPartnerIdentifier:(NSDictionary *)params
     }];
 }
 
+// Notifications
+
+RCT_EXPORT_METHOD(updatePushToken:(NSString *)token)
+{
+  [FlyBuyCore updatePushToken:token];
+}
+
+RCT_EXPORT_METHOD(handleRemoteNotification:(NSDictionary *)userInfo)
+{
+  [FlyBuyCore handleRemoteNotification:userInfo];
+}
+
+
 
 // Parser
 - (NSDictionary<NSString *, NSString *> *)parseCustomerInfo:(FlyBuyCustomerInfo *)info {
