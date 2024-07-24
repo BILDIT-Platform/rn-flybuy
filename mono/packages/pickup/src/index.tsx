@@ -24,6 +24,6 @@ const RnFlybuyPickup = RnFlybuyPickupModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return RnFlybuyPickup.multiply(a, b);
+export function onPermissionChanged(): Promise<void> {
+  return RnFlybuyPickup.onPermissionChanged();
 }

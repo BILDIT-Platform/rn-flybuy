@@ -9,4 +9,7 @@
 @interface RnFlybuyPickup : NSObject <RCTBridgeModule>
 #endif
 
+- (void)onPermissionChanged:(RCTPromiseResolveBlock)resolve
+                     reject:(RCTPromiseRejectBlock)reject;
+
 @end

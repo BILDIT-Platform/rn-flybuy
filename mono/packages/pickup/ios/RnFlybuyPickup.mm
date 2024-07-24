@@ -1,18 +1,16 @@
 #import "RnFlybuyPickup.h"
+#import <CoreLocation/CoreLocation.h>
+#import <FlyBuyPickup/FlyBuyPickup.h>
+#import <FlyBuyPickup/FlyBuyPickup-Swift.h>
 
 @implementation RnFlybuyPickup
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_EXPORT_METHOD(multiply:(double)a
-                  b:(double)b
-                  resolve:(RCTPromiseResolveBlock)resolve
+// This is not handled on iOS, only android need this function
+RCT_EXPORT_METHOD(onPermissionChanged:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
-    NSNumber *result = @(a * b);
-
-    resolve(result);
+    resolve(@"ok");
 }
 
 // Don't compile this code when we build for the old architecture.
