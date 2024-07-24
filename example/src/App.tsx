@@ -5,6 +5,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {CustomerSection} from './CustomerSection';
 import {SitesSection} from './SitesSection';
 import {OrdersSection} from './OrdersSection';
+import {PickupSection} from './PickupSection';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,6 +22,7 @@ function App(): React.JSX.Element {
         <CustomerSection />
         <SitesSection />
         <OrdersSection />
+        <PickupSection />
       </ScrollView>
     </SafeAreaView>
   );

@@ -3,10 +3,13 @@
 #import <React/RCTBundleURLProvider.h>
 #import "RNCConfig.h"
 
-// TODO: add this to documentation
+// TODO: add this to documentation flybuy core
 #import <CoreLocation/CoreLocation.h>
 #import <FlyBuy/FlyBuy-Swift.h>
 // End
+
+// TODO: add this to documentation flybuy pickup
+#import <FlyBuyPickup/FlyBuyPickup-Swift.h>
 
 
 @implementation AppDelegate
@@ -20,10 +23,13 @@
   
   // Load environment variables & initialize FlyBuy
   NSString *appToken = [RNCConfig envFor:@"IOS_APP_TOKEN"];
-  // FlyBuy configuration
+  // FlyBuy core configuration, always place this above all other FlyBuy configure
   FlyBuyConfigOptionsBuilder *builder = [FlyBuyConfigOptions BuilderWithToken:appToken];
   FlyBuyConfigOptions *configOptions = [builder build];
   [FlyBuyCore configureWithOptions:configOptions];
+  
+  // FlyBuy Pickup native configuration
+  [[FlyBuyPickupManager shared] configure];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
