@@ -223,8 +223,7 @@ RCT_EXPORT_METHOD(handleRemoteNotification:(NSDictionary *)userInfo)
   map[@"instructions"] = site.instructions ?: @"";
   map[@"description"] = site.description ?: @"";
   map[@"partnerIdentifier"] = site.partnerIdentifier ?: @"";
-  // TODO: site.pickupConfig is not defined in iOS SDK
-//  map[@"pickupConfig"] = [self parsePickupConfig:site.pickupConfig];
+  map[@"pickupConfig"] = [self parsePickupConfig:site.pickupConfig];
   return map;
 }
 
