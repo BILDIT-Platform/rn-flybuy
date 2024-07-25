@@ -8,7 +8,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:7.2.1"
+    classpath "com.android.tools.build:gradle:8.2.1"
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
@@ -64,7 +64,7 @@ android {
     minSdkVersion getExtOrIntegerDefault("minSdkVersion")
     targetSdkVersion getExtOrIntegerDefault("targetSdkVersion")
     buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
-
+    missingDimensionStrategy "flybuy", "default"
   }
 
   buildFeatures {
@@ -107,6 +107,7 @@ repositories {
 }
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
+def flybuy_version = getExtOrDefault("flybuyVersion")
 
 dependencies {
   // For < 0.71, this will be from the local maven repo
@@ -114,6 +115,9 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  implementation platform("com.radiusnetworks.flybuy:bom:$flybuy_version")
+  implementation('com.radiusnetworks.flybuy:live-status')
 }
 
 if (isNewArchitectureEnabled()) {
