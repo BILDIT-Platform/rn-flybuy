@@ -120,6 +120,8 @@ dependencies {
     // This is mandatory to do the native configure
     implementation platform("com.radiusnetworks.flybuy:bom:$flybuyVersion")
     implementation('com.radiusnetworks.flybuy:core')
+    // Optional depends on usage
+    implementation('com.radiusnetworks.flybuy:pickup')
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
