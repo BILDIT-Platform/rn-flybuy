@@ -56,6 +56,72 @@ cd ios && pod install
 No specific configuration for iOS
 
 
+## Native Initialization
+
+### Android
+
+Modify `android/app/build.gradle`
+
+```gradle
+  dependencies {
+      // .. other dependencies
+
+      // Add below dependencies
+      implementation platform("com.radiusnetworks.flybuy:bom:$flybuyVersion")
+      implementation('com.radiusnetworks.flybuy:core')
+  }
+```
+
+Modify `MainApplication.kt`
+
+```kotlin
+import com.radiusnetworks.flybuy.sdk.ConfigOptions
+import com.radiusnetworks.flybuy.sdk.FlyBuyCore
+
+
+class MainApplication : Application(), ReactApplication {
+  override fun onCreate() {
+    super.onCreate()
+    SoLoader.init(this, false)
+    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
+      // If you opted-in for the New Architecture, we load the native entry point for this app.
+      load()
+    }
+
+    // Native configure
+    val configOptions = ConfigOptions.Builder("YourFlyBuyToken")
+      .build()
+    FlyBuyCore.configure(this, configOptions)
+  }
+}
+```
+
+
+### iOS
+
+
+Modify `iOS/yourproject/AppDelegate.mm`
+
+```objc
+
+// Add this import and make sure CoreLocation import always above FlyBuy import
+#import <CoreLocation/CoreLocation.h>
+#import <FlyBuy/FlyBuy-Swift.h>
+
+```
+
+```objc
+
+// Load environment variables & initialize FlyBuy
+NSString *appToken = @"YourFlyBuyToken";
+// FlyBuy core configuration, always place this above all other FlyBuy configure
+FlyBuyConfigOptionsBuilder *builder = [FlyBuyConfigOptions BuilderWithToken:appToken];
+FlyBuyConfigOptions *configOptions = [builder build];
+[FlyBuyCore configureWithOptions:configOptions];
+```
+
+
+
 ## Usage
 
 
