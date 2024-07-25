@@ -12,6 +12,7 @@ import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
 import com.radiusnetworks.flybuy.sdk.ConfigOptions
 import com.radiusnetworks.flybuy.sdk.FlyBuyCore
+import com.radiusnetworks.flybuy.sdk.pickup.PickupManager;
 
 
 
@@ -48,5 +49,8 @@ class MainApplication : Application(), ReactApplication {
     val configOptions = ConfigOptions.Builder(BuildConfig.ANDROID_APP_TOKEN)
       .build()
     FlyBuyCore.configure(this, configOptions)
+
+    // Native configuration for FlyBuy Pickup
+    PickupManager.getInstance()?.configure(applicationContext)
   }
 }
