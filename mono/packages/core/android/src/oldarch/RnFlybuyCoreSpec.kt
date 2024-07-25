@@ -1,14 +1,15 @@
 package com.bilditplatform.rnflybuycore
 
+import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
-import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReadableMap
 
 abstract class RnFlybuyCoreSpec internal constructor(context: ReactApplicationContext) :
   ReactContextBaseJavaModule(context) {
 
   // Notification related function
+  abstract fun configure(token: String, promise: Promise)
   abstract fun updatePushToken(token: String)
   abstract fun handleRemoteNotification(data: ReadableMap)
 
