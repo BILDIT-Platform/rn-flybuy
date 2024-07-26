@@ -123,6 +123,7 @@ dependencies {
     // Optional depends on usage
     implementation('com.radiusnetworks.flybuy:pickup')
     implementation('com.radiusnetworks.flybuy:presence')
+    implementation('com.radiusnetworks.flybuy:notify')
     implementation('com.radiusnetworks.flybuy:live-status')
 
 }

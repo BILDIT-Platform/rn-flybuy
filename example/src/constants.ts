@@ -17,3 +17,12 @@ export const REGION = {
   longitude: -122.3300605,
   radius: 100,
 };
+
+export const NOTIFICATION = {
+  title: 'Test Notification',
+  message: 'Test Notification message',
+  data: {
+    key1: 'value',
+    key2: 'value',
+  },
+};

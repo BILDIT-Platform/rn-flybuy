@@ -1701,7 +1701,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bildit-platform/rn-flybuy-core@workspace:packages/core":
+"@bildit-platform/rn-flybuy-core@3.0.0, @bildit-platform/rn-flybuy-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@bildit-platform/rn-flybuy-core@workspace:packages/core"
   dependencies:
@@ -1763,6 +1763,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bildit-platform/rn-flybuy-notify@workspace:packages/notify"
   dependencies:
+    "@bildit-platform/rn-flybuy-core": 3.0.0
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
     "@react-native/eslint-config": ^0.73.1
@@ -14693,7 +14694,7 @@ __metadata:
 
 "typescript@patch:typescript@>=3 < 6#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4 || ^5.2.2#~builtin<compat/typescript>, typescript@patch:typescript@^5.2.2#~builtin<compat/typescript>":
   version: 5.5.3
-  resolution: "typescript@patch:typescript@npm%3A5.5.3#~builtin<compat/typescript>::version=5.5.3&hash=29ae49"
+  resolution: "typescript@patch:typescript@npm%3A5.5.3#~builtin<compat/typescript>::version=5.5.3&hash=14eedb"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

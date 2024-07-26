@@ -82,6 +82,9 @@
   "resolutions": {
     "@types/react": "^18.2.44"
   },
+  "dependencies": {
+    "@bildit-platform/rn-flybuy-core": "3.0.0"
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"

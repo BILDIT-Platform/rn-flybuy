@@ -1,4 +1,6 @@
 import { NativeModules, Platform } from 'react-native';
+import type { INotificationInfo } from './types';
+import type { ICircularRegion, ISite } from '@bildit-platform/rn-flybuy-core';
 
 const LINKING_ERROR =
   `The package '@bildit-platform/rn-flybuy-notify' doesn't seem to be linked. Make sure: \n\n` +
@@ -24,6 +26,22 @@ const RnFlybuyNotify = RnFlybuyNotifyModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return RnFlybuyNotify.multiply(a, b);
+export function configure(bgTaskIdentifier?: string): Promise<void> {
+  return RnFlybuyNotify.configure(bgTaskIdentifier)
+}
+
+export function clearNotifications(): Promise<void> {
+  return RnFlybuyNotify.clearNotifications();
+}
+
+export function createForSitesInRegion(region: ICircularRegion, notification: INotificationInfo): Promise<ISite[]> {
+  return RnFlybuyNotify.createForSitesInRegion(region, notification)
+}
+
+export function sync(force: boolean): Promise<void> {
+  return RnFlybuyNotify.sync(force)
+}
+
+export function onPermissionChanged(): void {
+  return RnFlybuyNotify.onPermissionChanged()
 }

@@ -14,6 +14,7 @@ import {
   requestNotifications,
   RESULTS,
 } from 'react-native-permissions';
+import { NotifySection } from './NotifySection';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -61,6 +62,7 @@ function App(): React.JSX.Element {
         <OrdersSection />
         <PickupSection />
         <PresenceSection />
+        <NotifySection />
       </ScrollView>
     </SafeAreaView>
   );
