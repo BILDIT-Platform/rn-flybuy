@@ -24,8 +24,11 @@ const RnFlybuyPresence = RnFlybuyPresenceModule
       }
     );
 
-export function startLocatorWithIdentifier(id: string, payload: string): Promise<string> {
-  return RnFlybuyPresence.createLocatorWithIdentifier(id, payload);
+export function startLocatorWithIdentifier(
+  id: string,
+  payload: string
+): Promise<string> {
+  return RnFlybuyPresence.startLocatorWithIdentifier(id, payload);
 }
 
 export function stopLocator(): Promise<string> {

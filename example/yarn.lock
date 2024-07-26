@@ -1188,10 +1188,10 @@
   version "0.1.0"
 
 "@bildit-platform/rn-flybuy-pickup@file:../mono/packages/pickup":
-  version "0.1.0"
+  version "3.0.0"
 
 "@bildit-platform/rn-flybuy-presence@file:../mono/packages/presence":
-  version "0.1.0"
+  version "3.0.0"
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"

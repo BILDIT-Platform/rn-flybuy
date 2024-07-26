@@ -122,7 +122,9 @@ dependencies {
     implementation('com.radiusnetworks.flybuy:core')
     // Optional depends on usage
     implementation('com.radiusnetworks.flybuy:pickup')
+    implementation('com.radiusnetworks.flybuy:presence')
     implementation('com.radiusnetworks.flybuy:live-status')
+
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

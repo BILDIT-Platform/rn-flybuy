@@ -64,7 +64,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - bildit-platform-rn-flybuy-pickup (0.1.0):
+  - bildit-platform-rn-flybuy-pickup (3.0.0):
     - bildit-platform-rn-flybuy-core
     - DoubleConversion
     - glog
@@ -86,7 +86,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - bildit-platform-rn-flybuy-presence (0.1.0):
+  - bildit-platform-rn-flybuy-presence (3.0.0):
     - bildit-platform-rn-flybuy-core
     - DoubleConversion
     - glog
@@ -1480,8 +1480,8 @@ SPEC CHECKSUMS:
   bildit-platform-rn-flybuy-core: 109baa8ca54d77a4172ce3e4ff55996f148c5612
   bildit-platform-rn-flybuy-livestatus: cb6926afe38559d85a6298313d4f263e67ccbfb6
   bildit-platform-rn-flybuy-notify: f843dec3589da51e8d1d89f3c538826a160e533c
-  bildit-platform-rn-flybuy-pickup: 05c305d288d6088117d6dc05c01949b7e671c090
-  bildit-platform-rn-flybuy-presence: 5e7b43a029c50660a06423fb065bff43ff68eb90
+  bildit-platform-rn-flybuy-pickup: 2e0a8a97c64ee8c2b85441aa764e230731da696b
+  bildit-platform-rn-flybuy-presence: ef43aba050b75b177a870aca1beeb65714dc3c84
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
   DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
   FBLazyVector: 7e977dd099937dc5458851233141583abba49ff2

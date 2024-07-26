@@ -14,6 +14,8 @@ import com.radiusnetworks.flybuy.sdk.ConfigOptions
 import com.radiusnetworks.flybuy.sdk.FlyBuyCore
 import com.radiusnetworks.flybuy.sdk.livestatus.LiveStatusManager
 import com.radiusnetworks.flybuy.sdk.pickup.PickupManager
+import com.radiusnetworks.flybuy.sdk.presence.PresenceManager
+import java.util.UUID
 
 
 class MainApplication : Application(), ReactApplication {
@@ -52,6 +54,10 @@ class MainApplication : Application(), ReactApplication {
 
     // Native configuration for FlyBuy Pickup
     PickupManager.getInstance().configure(applicationContext)
+
+    // Native configuration for FlyBuy Presence
+    val uid = UUID.fromString(BuildConfig.PRESENCE_UUID)
+    PresenceManager.getInstance().configure(applicationContext, uid)
 
     // Native Configuration for FlyBuy LiveStatus
     LiveStatusManager.getInstance().configure(applicationContext)
