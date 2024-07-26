@@ -24,6 +24,10 @@ const RnFlybuyPresence = RnFlybuyPresenceModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return RnFlybuyPresence.multiply(a, b);
+export function startLocatorWithIdentifier(id: string, payload: string): Promise<string> {
+  return RnFlybuyPresence.createLocatorWithIdentifier(id, payload);
+}
+
+export function stopLocator(): Promise<string> {
+  return RnFlybuyPresence.stopLocator();
 }

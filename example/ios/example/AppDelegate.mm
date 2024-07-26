@@ -11,6 +11,8 @@
 // TODO: add this to documentation flybuy pickup
 #import <FlyBuyPickup/FlyBuyPickup-Swift.h>
 
+#import <FlyBuyPresence/FlyBuyPresence-Swift.h>
+
 
 @implementation AppDelegate
 
@@ -30,6 +32,13 @@
   
   // FlyBuy Pickup native configuration
   [[FlyBuyPickupManager shared] configure];
+  
+  
+  // FlyBuy Presence native configuration
+  NSString *presenceUuid = [RNCConfig envFor:@"PRESENCE_UUID"];
+  NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:presenceUuid];
+  [[FlyBuyPresenceManager shared] configureWithPresenceUUID:uuid];
+  
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
