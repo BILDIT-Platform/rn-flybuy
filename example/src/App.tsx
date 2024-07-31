@@ -14,7 +14,7 @@ import {
   requestNotifications,
   RESULTS,
 } from 'react-native-permissions';
-import { NotifySection } from './NotifySection';
+import {NotifySection} from './NotifySection';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -34,12 +34,20 @@ function App(): React.JSX.Element {
         PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
         PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
       ],
+      ios: [
+        PERMISSIONS.IOS.LOCATION_ALWAYS,
+        PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+      ],
     }) as Permission[];
     const results = await requestMultiple(locationPermissions);
     return Platform.select({
       android: [
         PERMISSIONS.ANDROID.ACCESS_BACKGROUND_LOCATION,
         PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+      ].every(permission => results[permission] === RESULTS.GRANTED),
+      ios: [
+        PERMISSIONS.IOS.LOCATION_ALWAYS,
+        PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
       ].every(permission => results[permission] === RESULTS.GRANTED),
     });
   };
