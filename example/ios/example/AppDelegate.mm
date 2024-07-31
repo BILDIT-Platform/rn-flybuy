@@ -3,15 +3,13 @@
 #import <React/RCTBundleURLProvider.h>
 #import "RNCConfig.h"
 
-// TODO: add this to documentation flybuy core
 #import <CoreLocation/CoreLocation.h>
 #import <FlyBuy/FlyBuy-Swift.h>
 // End
 
-// TODO: add this to documentation flybuy pickup
 #import <FlyBuyPickup/FlyBuyPickup-Swift.h>
-
 #import <FlyBuyPresence/FlyBuyPresence-Swift.h>
+#import <FlyBuyNotify/FlyBuyNotify-Swift.h>
 
 
 @implementation AppDelegate
@@ -32,6 +30,15 @@
   
   // FlyBuy Pickup native configuration
   [[FlyBuyPickupManager shared] configure];
+  
+  // FlyBuy Notify native configuration
+  [[FlyBuyNotifyManager shared] configureWithBgTaskIdentifier:@"notifyBgTaskId" bgSyncCallback:^(NSError *error) {
+    if (error == nil) {
+      NSLog(@"Notify campaign content updated via a background task");
+    } else {
+      NSLog(@"Notify Background Sync Error: %@", error.description);
+    }
+  }];
   
   
   // FlyBuy Presence native configuration
