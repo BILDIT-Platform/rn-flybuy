@@ -9,4 +9,8 @@
 @interface RnFlybuyLivestatus : NSObject <RCTBridgeModule>
 #endif
 
+- (void)configure:(NSString *)icon
+     withResolver:(RCTPromiseResolveBlock)resolve
+     withRejecter:(RCTPromiseRejectBlock)reject;
+
 @end

@@ -10,6 +10,7 @@
 #import <FlyBuyPickup/FlyBuyPickup-Swift.h>
 #import <FlyBuyPresence/FlyBuyPresence-Swift.h>
 #import <FlyBuyNotify/FlyBuyNotify-Swift.h>
+#import <FlyBuyLiveStatus/FlyBuyLiveStatus-Swift.h>
 
 
 @implementation AppDelegate
@@ -30,6 +31,15 @@
   
   // FlyBuy Pickup native configuration
   [[FlyBuyPickupManager shared] configure];
+  
+  // FlyBuy LiveStatus native configuration
+  FlyBuyLiveStatusOptions *options = [[[FlyBuyLiveStatusOptions.Builder init] setIconName:@"AppIcon"] build];
+  if (@available(iOS 16.2, *)) {
+      [[FlyBuyLiveStatusManager shared] configureWithOptions:options];
+  } else {
+      // Fallback on earlier versions
+    NSLog(@"LiveStatus is not available in this iOS version");
+  }
   
   // FlyBuy Notify native configuration
   [[FlyBuyNotifyManager shared] configureWithBgTaskIdentifier:@"notifyBgTaskId" bgSyncCallback:^(NSError *error) {
